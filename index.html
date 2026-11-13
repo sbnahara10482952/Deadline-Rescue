@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Deadline Rescue</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <a href="#main-content" class="skip-link">
+        Skip to main content
+    </a>
+
+    <!-- Header -->
+    <header class="top-bar">
+        <div class="brand">
+            <h1>Deadline Rescue</h1>
+            <p>Stay organised. Know what to do next.</p>
+        </div>
+
+        <nav aria-label="Main navigation">
+            <button
+                type="button"
+                class="nav-button active"
+                aria-pressed="true"
+                onclick="showSection('dashboard')">
+                Dashboard
+            </button>
+
+            <button
+                type="button"
+                class="nav-button"
+                aria-pressed="false"
+                onclick="showSection('add-assessment')">
+                Add Assessment
+            </button>
+
+            <button
+                type="button"
+                class="nav-button"
+                aria-pressed="false"
+                onclick="showSection('completed')">
+                Completed
+            </button>
+        </nav>
+    </header>
+
+
+    <main id="main-content" class="container" tabindex="-1"></main>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="page-section">
+
+            <div class="welcome">
+                <h2>My Dashboard</h2>
+                <p>View your assessments and focus on your most important tasks.</p>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="summary-grid">
+
+                <div class="summary-card">
+                    <span class="summary-number" id="total-count">0</span>
+                    <span>Total Assessments</span>
+                </div>
+
+                <div class="summary-card priority-card">
+                    <span class="summary-number" id="priority-count">0</span>
+                    <span>High Priority</span>
+                </div>
+
+                <div class="summary-card">
+                    <span class="summary-number" id="progress-count">0</span>
+                    <span>In Progress</span>
+                </div>
+
+                <div class="summary-card completed-summary">
+                    <span class="summary-number" id="completed-count">0</span>
+                    <span>Completed</span>
+                </div>
+
+            </div>
+
+
+            <!-- High Priority -->
+            <section class="task-section">
+                <div class="section-heading">
+                    <div>
+                        <h3>High Priority</h3>
+                        <p>Tasks that need your attention first.</p>
+                    </div>
+                </div>
+
+                <div id="priority-list" class="assessment-list">
+                    <div class="empty-state">
+                        <h4>No high-priority assessments</h4>
+                        <p>Add an assessment to start planning your workload.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Upcoming -->
+            <section class="task-section">
+                <div class="section-heading">
+                    <div>
+                        <h3>Upcoming</h3>
+                        <p>Your upcoming academic deadlines.</p>
+                    </div>
+                </div>
+
+                <div id="upcoming-list" class="assessment-list">
+                    <div class="empty-state">
+                        <h4>No upcoming assessments</h4>
+                        <p>Your upcoming assessments will appear here.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- In Progress -->
+            <section class="task-section">
+                <div class="section-heading">
+                    <div>
+                        <h3>In Progress</h3>
+                        <p>Assessments you are currently working on.</p>
+                    </div>
+                </div>
+
+                <div id="progress-list" class="assessment-list">
+                    <div class="empty-state">
+                        <h4>Nothing in progress</h4>
+                        <p>Start an assessment when you are ready to work on it.</p>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+
+        <!-- Add Assessment -->
+        <section id="add-assessment" class="page-section hidden">
+
+            <div class="form-container">
+
+                <div class="welcome">
+                    <h2>Add Assessment</h2>
+                    <p>Enter your assessment details to add it to your planning list.</p>
+                </div>
+
+                <form id="assessment-form">
+
+                    <div class="form-group">
+                        <label for="assessment-name">
+                            Assessment Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="assessment-name"
+                            placeholder="e.g. HCI Portfolio"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="due-date">
+                            Due Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="due-date"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="difficulty">
+                            Difficulty
+                        </label>
+
+                        <select id="difficulty" required>
+                            <option value="">Select difficulty</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="study-time">
+                            Estimated Study Time
+                        </label>
+
+                        <select id="study-time" required>
+                            <option value="">Select study time</option>
+                            <option value="1">1 hour</option>
+                            <option value="2">2 hours</option>
+                            <option value="3">3 hours</option>
+                            <option value="4">4 hours</option>
+                            <option value="5">5+ hours</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="notes">
+                            Notes <span>(Optional)</span>
+                        </label>
+
+                        <textarea
+                            id="notes"
+                            rows="4"
+                            placeholder="Add any useful notes about this assessment..."
+                        ></textarea>
+                    </div>
+
+
+                    <div id="form-message" class="form-message" role="alert"></div>
+
+
+                    <div class="form-actions">
+                        <button type="submit" class="primary-button">
+                            Save Assessment
+                        </button>
+
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            onclick="cancelAssessmentEdit()"
+                        >
+                            Cancel
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- Completed -->
+        <section id="completed" class="page-section hidden">
+
+            <div class="welcome">
+                <h2>Completed Assessments</h2>
+                <p>Look back at the academic tasks you have finished.</p>
+            </div>
+
+            <div id="completed-list" class="assessment-list">
+
+                <div class="empty-state">
+                    <h4>No completed assessments yet</h4>
+                    <p>Completed assessments will appear here.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Study Support -->
+        <section class="support-section">
+
+            <div>
+                <h3>Study Support</h3>
+
+                <p>
+                    Working with a study partner can help you stay motivated
+                    and accountable.
+                </p>
+            </div>
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="support-button"
+                aria-expanded="false"
+                aria-controls="support-options"
+                onclick="toggleSupportOptions()"
+            >
+                View Support Options
+            </button>
+
+            <div
+                id="support-options"
+                class="support-options hidden"
+                aria-live="polite"
+            >
+                <h4>Ways to get study support</h4>
+
+                <ul>
+                    <li>
+                        Ask a classmate to study with you before an assessment.
+                    </li>
+
+                    <li>
+                        Share your study goals with a trusted study partner.
+                    </li>
+
+                    <li>
+                        Discuss difficult topics and help each other understand
+                        the work.
+                    </li>
+                </ul>
+
+                <p>
+                    Working together can help you remain focused and motivated.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            Deadline Rescue &copy; 2026
+        </p>
+
+        <p>
+            Designed to help students plan, prioritise and progress.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,608 @@
+/* =========================================
+   DEADLINE RESCUE
+   Main stylesheet
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7f8;
+    color: #263238;
+    line-height: 1.6;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.top-bar {
+    background: #ffffff;
+    border-bottom: 1px solid #d9e1e5;
+    padding: 22px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.brand h1 {
+    font-size: 28px;
+    color: #176b87;
+    margin-bottom: 3px;
+}
+
+.brand p {
+    color: #66757f;
+    font-size: 14px;
+}
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.nav-button {
+    border: none;
+    background: transparent;
+    color: #40515a;
+    padding: 10px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav-button:hover {
+    background: #e8f3f6;
+}
+
+.nav-button:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #f0a202;
+    outline-offset: 2px;
+}
+
+.nav-button.active {
+    background: #176b87;
+    color: #ffffff;
+}
+
+/* =========================================
+   MAIN CONTAINER
+   ========================================= */
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: 35px auto;
+}
+
+.page-section {
+    min-height: 400px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* =========================================
+   WELCOME SECTION
+   ========================================= */
+
+.welcome {
+    margin-bottom: 25px;
+}
+
+.welcome h2 {
+    font-size: 30px;
+    margin-bottom: 6px;
+    color: #263238;
+}
+
+.welcome p {
+    color: #66757f;
+}
+
+/* =========================================
+   SKIP LINK ACCESSIBILITY
+   ========================================= */
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    background: #176b87;
+    color: #ffffff;
+    padding: 12px 18px;
+    border-radius: 7px;
+    z-index: 1000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* =========================================
+   SUMMARY CARDS
+   ========================================= */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 35px;
+}
+
+.summary-card {
+    background: #ffffff;
+    border: 1px solid #dce4e8;
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.summary-card span:last-child {
+    color: #66757f;
+    font-size: 14px;
+}
+
+.summary-number {
+    font-size: 30px;
+    font-weight: bold;
+    color: #176b87;
+}
+
+/* =========================================
+   TASK SECTIONS
+   ========================================= */
+
+.task-section {
+    margin-bottom: 30px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.section-heading h3 {
+    font-size: 21px;
+    margin-bottom: 2px;
+}
+
+.section-heading p {
+    color: #66757f;
+    font-size: 14px;
+}
+
+/* =========================================
+   ASSESSMENT LIST
+   ========================================= */
+
+.assessment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.assessment-card {
+    background: #ffffff;
+    border: 1px solid #dce4e8;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.assessment-main {
+    flex: 1;
+}
+
+.assessment-topline {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.priority-badge,
+.status-badge {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.priority-badge.high {
+    background: #fde8e7;
+    color: #a12620;
+}
+
+.priority-badge.medium {
+    background: #fff1d5;
+    color: #815900;
+}
+
+.priority-badge.low {
+    background: #e5f4ea;
+    color: #236b3c;
+}
+
+.status-badge {
+    background: #e8f0f4;
+    color: #40515a;
+}
+
+.status-badge.in-progress {
+    background: #e7f1fb;
+    color: #245d86;
+}
+
+.status-badge.completed {
+    background: #e5f4ea;
+    color: #236b3c;
+}
+
+.assessment-card h4 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.assessment-details {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    color: #53636c;
+    font-size: 14px;
+}
+
+.assessment-notes {
+    margin-top: 12px;
+    padding: 10px;
+    background: #f6f8f9;
+    border-radius: 7px;
+    color: #53636c;
+    font-size: 14px;
+}
+
+.assessment-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+button {
+    font-family: inherit;
+}
+
+.primary-button,
+.secondary-button,
+.small-button {
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.primary-button {
+    background: #176b87;
+    color: #ffffff;
+    border: 2px solid #176b87;
+    padding: 11px 20px;
+}
+
+.primary-button:hover {
+    background: #12566c;
+}
+
+.secondary-button {
+    background: #ffffff;
+    color: #176b87;
+    border: 2px solid #176b87;
+    padding: 10px 18px;
+}
+
+.secondary-button:hover {
+    background: #e8f3f6;
+}
+
+.small-button {
+    padding: 7px 10px;
+    border: 1px solid transparent;
+    font-size: 12px;
+}
+
+.primary-small {
+    background: #176b87;
+    color: #ffffff;
+}
+
+.success-small {
+    background: #287a46;
+    color: #ffffff;
+}
+
+.secondary-small {
+    background: #eef3f5;
+    color: #30424b;
+    border-color: #d5dfe3;
+}
+
+.danger-small {
+    background: #ffffff;
+    color: #a12620;
+    border-color: #d9aaa7;
+}
+
+.primary-small:hover,
+.success-small:hover {
+    opacity: 0.88;
+}
+
+.secondary-small:hover {
+    background: #e2eaed;
+}
+
+.danger-small:hover {
+    background: #fff1f0;
+}
+
+/* =========================================
+   EMPTY STATES
+   ========================================= */
+
+.empty-state {
+    background: #ffffff;
+    border: 1px dashed #bdcbd1;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+}
+
+.empty-state h4 {
+    margin-bottom: 5px;
+}
+
+.empty-state p {
+    color: #66757f;
+    font-size: 14px;
+}
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.form-container {
+    background: #ffffff;
+    border: 1px solid #dce4e8;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 750px;
+    margin: 0 auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.form-group label span {
+    font-weight: normal;
+    color: #66757f;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #aebdc4;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 15px;
+    background: #ffffff;
+    color: #263238;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #176b87;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.form-message {
+    min-height: 0;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.form-message.success {
+    padding: 10px;
+    background: #e5f4ea;
+    color: #236b3c;
+}
+
+.form-message.error {
+    padding: 10px;
+    background: #fde8e7;
+    color: #a12620;
+}
+
+/* =========================================
+   STUDY SUPPORT
+   ========================================= */
+
+.support-section {
+    margin-top: 35px;
+    background: #e8f3f6;
+    border: 1px solid #c8dfe6;
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.support-section h3 {
+    margin-bottom: 5px;
+}
+
+.support-section p {
+    color: #53636c;
+    font-size: 14px;
+}
+
+.support-options {
+    flex-basis: 100%;
+    background: #ffffff;
+    border: 1px solid #c8dfe6;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.support-options h4 {
+    margin-bottom: 10px;
+    color: #176b87;
+}
+
+.support-options ul {
+    padding-left: 22px;
+    margin-bottom: 12px;
+}
+
+.support-options li {
+    margin-bottom: 8px;
+}
+
+.support-options p {
+    margin-top: 10px;
+} 
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    margin-top: 50px;
+    padding: 25px;
+    text-align: center;
+    background: #263238;
+    color: #ffffff;
+}
+
+footer p {
+    font-size: 13px;
+    margin: 3px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .assessment-card {
+        flex-direction: column;
+    }
+
+    .assessment-actions {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .container {
+        width: 94%;
+        margin-top: 25px;
+    }
+
+    .brand h1 {
+        font-size: 24px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome h2 {
+        font-size: 25px;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .support-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-button {
+        flex: 1;
+    }
+}
